@@ -4,9 +4,15 @@ const getNotes = function() {
   return "Your notes...";
 };
 
-const addNotes = function() {
+const addNotes = function(title, body) {
   const notes = loadNotes();
-  console.log(notes);
+  notes.push({
+    title: title,
+    body: body,
+  })
+
+  saveNotes(notes);
+
 };
 
 const loadNotes = function () {
@@ -19,6 +25,12 @@ const loadNotes = function () {
     return [];
   }
 }
+
+const saveNotes = function (notes) {
+  const dataJSON = JSON.stringify(notes);
+  fs.writeFileSync('notes.json', dataJSON);
+}
+
 module.exports = {
   getNotes: getNotes,
   addNotes: addNotes
