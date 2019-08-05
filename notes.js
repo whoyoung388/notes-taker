@@ -17,9 +17,9 @@ const addNotes = function(title, body) {
       body: body,
     })
     saveNotes(notes);
-    console.log('New note added!');
+    console.log(chalk.green.inverse.bold('New note added!'));
   } else {
-    console.log('Title already exists!');
+    console.log(chalk.red.inverse.bold('Title already exists!'));
   }
 };
 
