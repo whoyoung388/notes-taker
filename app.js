@@ -19,6 +19,21 @@ yargs.command({
     handler: function() {
         console.log('Removing the note!')
     }
+})
 
+yargs.command({
+    command: 'list',
+    describe: 'List  all the notes!',
+    handler: function () {
+        console.log('Listing all the notes!')
+    }
+})
+
+yargs.command({
+    command: 'read',
+    describe: 'Show the note!',
+    handler: function () {
+        console.log('Show the note!')
+    }
 })
 yargs.parse()
