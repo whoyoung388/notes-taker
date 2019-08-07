@@ -36,6 +36,15 @@ const removeNote = (title) => {
   }
 }
 
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.inverse.blue('Note List:'));
+
+  notes.forEach( note => {
+    console.log(note.title);
+  });
+}
+
 const loadNotes = () => {
   try {
     const dataBuffer = fs.readFileSync('notes.json');
@@ -56,4 +65,5 @@ module.exports = {
   getNotes: getNotes,
   addNotes: addNotes,
   removeNote: removeNote,
+  listNotes: listNotes,
 };
